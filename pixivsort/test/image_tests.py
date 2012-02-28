@@ -7,7 +7,7 @@ import re, os
 def test_path():
 	"""Test path of Image file object."""
 	
-	path = u"./tests/testsource/(814837) ろさ - 空と私.jpg"
+	path = u"./test/testsource/(814837) ろさ - 空と私.jpg"
 	re_pattern = re.compile("(?<=^\()\d*(?=\))")
 	img = Image(path, re_pattern)
 	assert_equal(img.path, path)
@@ -15,14 +15,14 @@ def test_path():
 def test_regex():
 	"""Test regex of Image file object."""
 
-	path = u"./tests/testsource/(814837) ろさ - 空と私.jpg"
+	path = u"./test/testsource/(814837) ろさ - 空と私.jpg"
 	re_pattern = re.compile("(?<=^\()\d*(?=\))")
 	img = Image(path, re_pattern)
 	assert_equal(img.re_pattern, re_pattern)
 
 def test_id_file():
 	"""Test id of Image file object."""
-	path = u"./tests/testsource/(814837) ろさ - 空と私.jpg"
+	path = u"./test/testsource/(814837) ろさ - 空と私.jpg"
 		
 	re_pattern = re.compile("(?<=^\()\d*(?=\))")
 	img = Image(path, re_pattern)
@@ -30,7 +30,7 @@ def test_id_file():
 
 def test_id_dir():
 	"""Test id of Image directory object."""
-	path = u"./tests/testsource/(206921) cherrypin - イラスト集め"
+	path = u"./test/testsource/(206921) cherrypin - イラスト集め"
 	
 	re_pattern = re.compile("(?<=^\()\d*(?=\))")
 	img = Image(path, re_pattern)
@@ -41,15 +41,15 @@ def test_copy_file():
 	# If pathnames don't work a switch will be needed
 	# using: platform.system() == 'Windows'
 	
-	sourcefile = u"./tests/testsource/(814837) ろさ - 空と私.jpg"
-	destpath = u"./tests/testdestination"
+	sourcefile = u"./test/testsource/(814837) ろさ - 空と私.jpg"
+	destpath = u"./test/testdestination"
 
 	re_pattern = re.compile("(?<=^\()\d*(?=\))")
 	img = Image(sourcefile, re_pattern)
 	
 	img.copy(destpath)
 	
-	destfile = 	u"./tests/testdestination/(814837) ろさ - 空と私.jpg"
+	destfile = 	u"./test/testdestination/(814837) ろさ - 空と私.jpg"
 	assert os.path.exists(destfile) == True
 	
 	# Move image back.
@@ -63,8 +63,8 @@ def test_copy_dir():
 	# using: platform.system() == 'Windows'
 	
 	# Location of the test directory and the test destination
-	sourcefile = u"./tests/testsource/(206921) cherrypin - イラスト集め"
-	destpath = u"./tests/testdestination"
+	sourcefile = u"./test/testsource/(206921) cherrypin - イラスト集め"
+	destpath = u"./test/testdestination"
 
 	# Create Image object and move it to the test destination
 	re_pattern = re.compile("(?<=^\()\d*(?=\))")
@@ -72,10 +72,10 @@ def test_copy_dir():
 	img.copy(destpath)
 	
 	# The directory and it's contents should now be at the test destination
-	destfile = 	u"./tests/testdestination/(206921) cherrypin - イラスト集め"
+	destfile = 	u"./test/testdestination/(206921) cherrypin - イラスト集め"
 	# If not the test fails
 	assert os.path.exists(destfile) == True
 	
 	# Move directory back in place.
 	img2 = Image(destfile, re_pattern)
-	img2.copy(u"./tests/testsource")
+	img2.copy(u"./test/testsource")

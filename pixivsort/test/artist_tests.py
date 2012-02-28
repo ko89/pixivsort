@@ -7,7 +7,7 @@ import re, os
 
 def test_path():
 	"""Test path of Artist object."""
-	path = u"./tests/testdestination/cherrypin (206921)"
+	path = u"./test/testdestination/cherrypin (206921)"
 	re_pattern = re.compile("(?<=\()\d*(?=\)$)")
 	
 	artist = Artist(path, re_pattern)
@@ -15,7 +15,7 @@ def test_path():
 
 def test_id():
 	"""Test ID of Artist object."""
-	path = u"./tests/testdestination/cherrypin (206921)"
+	path = u"./test/testdestination/cherrypin (206921)"
 	re_pattern = re.compile("(?<=\()\d*(?=\)$)")
 	
 	artist = Artist(path, re_pattern)

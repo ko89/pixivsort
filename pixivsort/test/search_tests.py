@@ -11,8 +11,8 @@ def test_find_images():
 	src_regex = re.compile("(?<=^\()\d*(?=\))")
 	dst_regex = re.compile("(?<=\()\d*(?=\)$)")
 	
-	search = Search(u"./tests/testsource",
-					u"./tests/testdestination",
+	search = Search(u"./test/testsource",
+					u"./test/testdestination",
 					src_regex,
 					dst_regex)
 	imglist = search.find_images()
@@ -28,8 +28,8 @@ def test_find_artists():
 	src_regex = re.compile("(?<=^\()\d*(?=\))")
 	dst_regex = re.compile("(?<=\()\d*(?=\)$)")
 	
-	search = Search(u"./tests/testsource",
-					u"./tests/testdestination",
+	search = Search(u"./test/testsource",
+					u"./test/testdestination",
 					src_regex,
 					dst_regex)
 					

@@ -48,17 +48,21 @@ class Main(object):
 		imagelist = search.find_images()
 		artistlist = search.find_artists()
 		
-		print "imagelist length: %d artistlist length: %d" % (len(imagelist), len(artistlist))
+		if len(imagelist) == 0 and len(artistlist) == 0:
+			print "Error: Nothing found neither in source or destination."
+			print "Maybe you have supplied the paths in the wrong order?"
+			print "It should be source path first and destination path second."
+			exit(1)
 		
 		for artist in artistlist:
-			print "checking artist with id: " + artist.id
+			print "--------------------------------------------"
+			print "Checking artist with id: " + artist.id
 			for image in imagelist:
-				
-				print "comparing image with artists id: " + image.artist_id
 				if artist.id == image.artist_id:
-					print "Copying image %s to %s" % (image.path, artist.path)
+					print "\tCopying image"
+					print "\t%s\n\tto\n\t%s" % (image.path, artist.path)
 					image.copy(artist.path)
 			
-if __name__ == '__main__':
-	main = Main(argv)
-	main.run()
+#if __name__ == '__main__':
+#	main = Main(argv)
+#	main.run()
