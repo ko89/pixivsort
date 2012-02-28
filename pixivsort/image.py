@@ -4,9 +4,9 @@ from sys import exit
 
 class Image(object):
 
-	def __init__(self, path, regex_pattern):
+	def __init__(self, path, re_pattern):
 		self.path = path
-		self.re_pattern = regex_pattern
+		self.re_pattern = re_pattern
 		
 		if os.path.isfile(path):
 			# Split path into filename and filepath
