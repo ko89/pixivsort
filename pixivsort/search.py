@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import os, re
 from pixivsort.image import Image
 from pixivsort.artist import Artist
@@ -17,14 +20,11 @@ class Search(object):
 		filelist = os.listdir(self.src_path)
 		for file in filelist:
 			filepath = os.path.join(self.src_path, file)
-			if os.path.isfile(filepath):
-				img = Image(filepath, self.src_regex)
-				if img.artist_id != None:
-					imagelist.append(img)
-			else:
-				img = Image(filepath, self.src_regex)
+
+			img = Image(filepath, self.src_regex)
+			if img.artist_id != None:
 				imagelist.append(img)
-				
+
 		return imagelist
 	
 	def find_artists(self):

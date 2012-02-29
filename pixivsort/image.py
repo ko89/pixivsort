@@ -1,4 +1,9 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import re, os, shutil
+
+
 from distutils import dir_util
 from sys import exit
 
@@ -19,8 +24,9 @@ class Image(object):
 			self.find_id(dirname)
 
 		else:
-			print "Warning:\n%s" % self.path
+			print "Warning:\n%s" % self.path.encode( "utf-8" )
 			print "is neither a file nor a directory. Ignoring..."
+			self.find_id(self.path)
 		
 	
 	def find_id(self, filename):
@@ -50,7 +56,7 @@ class Image(object):
 			shutil.rmtree(self.path)
 			
 		else:
-			print "Error:\n%s" % self.path
+			print "Error:\n%s" % self.path.encode( "utf-8" )
 			print "is neither a file nor a directory."
 			print "Something must have went very wrong, will now exit..."
 			exit(1)

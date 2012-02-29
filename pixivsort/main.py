@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from pixivsort.search import Search
 from sys import argv, exit
 import os
@@ -13,6 +16,12 @@ class Main(object):
 			exit(1)
 
 		script, src_path, dst_path = argv
+		
+		try:
+			src_path = unicode(src_path)
+			dst_path = unicode(dst_path)
+		except:
+			pass
 		
 		if not os.path.exists(src_path):
 			print "Source directory does not exist. Exiting..."
@@ -60,7 +69,9 @@ class Main(object):
 			for image in imagelist:
 				if artist.id == image.artist_id:
 					print "\tCopying image"
-					print "\t%s\n\tto\n\t%s" % (image.path, artist.path)
+					imgpath = image.path.encode( "utf-8" )
+					artistpath = artist.path.encode( "utf-8" )
+					print "\t%s\n\tto\n\t%s" % (imgpath, artistpath)
 					image.copy(artist.path)
 			
 #if __name__ == '__main__':
