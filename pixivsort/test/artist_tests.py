@@ -6,17 +6,17 @@ import re, os
 
 
 def test_path():
-	"""Test path of Artist object."""
-	path = u"./test/testdestination/cherrypin (206921)"
-	re_pattern = re.compile("(?<=\()\d*(?=\)$)")
-	
-	artist = Artist(path, re_pattern)
-	assert artist.path == path
+    """Test path of Artist object."""
+    path = "./test/testdestination/cherrypin (206921)"
+    re_pattern = re.compile("(?<=\()\d*(?=\)$)")
+    
+    artist = Artist(path, re_pattern)
+    assert(artist.path == path)
 
 def test_id():
-	"""Test ID of Artist object."""
-	path = u"./test/testdestination/cherrypin (206921)"
-	re_pattern = re.compile("(?<=\()\d*(?=\)$)")
-	
-	artist = Artist(path, re_pattern)
-	assert artist.id == u"206921"
+    """Test ID of Artist object."""
+    path = "./test/testdestination/cherrypin (206921)"
+    re_pattern = re.compile("(?<=\()\d*(?=\)$)")
+    
+    artist = Artist(path, re_pattern)
+    assert(artist.id == "206921")
