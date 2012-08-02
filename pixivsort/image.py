@@ -51,6 +51,9 @@ class Image(object):
             dirname = os.path.basename(self.path)
             finaldestination = os.path.join(destination, dirname)
             
+            if os.path.isdir(finaldestination):
+                shutil.rmtree(finaldestination)
+
             shutil.copytree(self.path, finaldestination)
             #dir_util.copy_tree(self.path, destination)
             shutil.rmtree(self.path)
