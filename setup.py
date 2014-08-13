@@ -5,10 +5,10 @@ except ImportError:
 
 config = {
     'description': 'A script for sorting pixiv images.',
-    'author': 'Stefan Bernstein',
+    'author': 'ko89',
     'url': 'none',
     'download_url': 'none',
-    'author_email': 'stefan.bernstein.2@htw-dresden.de',
+    'author_email': 'ko89@posteo.de',
     'version': '1.0',
     'install_requires': ['nose'],
     'packages': ['pixivsort'],
